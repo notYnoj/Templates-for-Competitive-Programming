@@ -16,3 +16,9 @@ std::ostream& operator<<(std::ostream& os, const T (&arr)[N]) {
     }
     return os;
 }
+
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+}

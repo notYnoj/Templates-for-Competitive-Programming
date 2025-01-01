@@ -11,6 +11,7 @@ struct ConvexHull_Lines{
             if(rhs.b != is_query){
                 return m<rhs.m;
             }
+            //need a new succ function declaration below
             const line* s = succ();
             if(!s) return false;
             type_T x = rhs.m;

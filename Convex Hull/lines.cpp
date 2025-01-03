@@ -22,8 +22,8 @@ struct ConvexHull_Lines{
     //maintain a multiset of lines such that we can compare lines
     
     multiset<line> lines;
-    bool redundant{
-
+    bool redundant(line l){
+        lines.lower_bound(l)
     }
     void add_line(type_T m, type_T b){
         lines.insert(line(m, b));

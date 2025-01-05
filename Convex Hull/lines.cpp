@@ -23,7 +23,8 @@ struct ConvexHull_Lines{
     
     multiset<line> lines;
     bool redundant(line l){
-        lines.lower_bound(l)
+        auto i = lines.lower_bound(l)
+
     }
     void add_line(type_T m, type_T b){
         lines.insert(line(m, b));

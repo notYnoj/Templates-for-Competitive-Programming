@@ -17,6 +17,7 @@ private:
         return x1;
     }
 public:
+    Mint() : val(0){}
     Mint(T val) : val((val%mod+mod)%mod){}
     //overload +, -, *, 
     friend std::ostream& operator<<(std::ostream& os, const Mint& m) {

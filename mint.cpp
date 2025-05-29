@@ -17,15 +17,13 @@ private:
         return x1;
     }
 public:
-    Mint(T val){
-        this->val = ((val+mod)%mod);
-    }
+    Mint(T val) : val((val%mod+mod)%mod){}
     //overload +, -, *, 
     Mint operator+(const Mint& other) const{
         return Mint((other.val + val)%mod);
     }
     Mint operator-(const Mint& other) const{
-        return Mint((val - other.val)%mod);
+        return Mint((val - other.val+mod)%mod);
     }
     Mint operator*(const Mint& other) const{
         return Mint((val*other.val)%mod);
@@ -38,7 +36,7 @@ public:
         return *this;
     }
     Mint& operator-=(const Mint& other){
-        val = (val - other.val)%mod;
+        val = (val - other.val+mod)%mod;
         return *this;
     }
     Mint& operator*=(const Mint& other){

@@ -1,7 +1,7 @@
 const int N = 1e6+5;
 int found[N];
 void sieve(){
-    fill(found, found+N+1, -1);
+    fill(found, found+N, -1);
     for(int p = 2; p*p<=N; p++){
         if(found[p] == -1){
             found[p] = p;
@@ -13,8 +13,10 @@ void sieve(){
 }
 vi factor(int x){
     vi ret;
+    if(x<=1) return {1};
     while(x!=1){
         ret.pb(found[x]);
         x/=found[x];
     }
+    return ret;
 }

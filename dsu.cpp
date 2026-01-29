@@ -7,8 +7,11 @@ public:
         parent.resize(n);
         for(ll i = 0; i<n; i++){
             size[i] = 1LL;
-            parent[i] = i;
+            parent[i] = i; 
         }
+    }
+    ll getSize(int i){
+        return size[parent[i]];
     }
     int find(int x){
         return(parent[x] == x? x: parent[x] = find(x));

@@ -4,20 +4,39 @@
 #define all(x) x.begin(), x.end()
 #define pii pair<int, int>
 #define pll pair<ll, ll>
-#define vi vector<int>
-#define vvi vector<vector<int>>
+#define vi vector<ll>
+#define vvi vector<vector<ll>>
 using namespace std;
-    
+int t;
 // Everything Else thats new :D
+template <typename T>
+std::ostream& operator<<(std::ostream& os, const std::pair<T, T> p){
+    os<<p.first<<' '<<p.second<<endl;
+    return os;
+}
 template <typename T> //custom output stream operator for vector
 std::ostream& operator<<(std::ostream& os, const std::vector<T>& vec) {
     for (const auto& elem : vec) {
-        os << elem << " ";
+        os << elem << ' ';
     }
     return os;
 }
 
+
+template <typename T>
+std::istream& operator>>(std::istream& is, std::vector<T>& vec){
+    //of size n
+    for(T& elem: vec){
+        is>>elem;
+    }
+    return is;
+}
+
+
+void solve(){
+    
+}
 int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin>>t;
+    while(t--){solve();}
 }

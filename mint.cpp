@@ -18,17 +18,21 @@ private:
     }
 public:
     Mint() : val(0){}
-    Mint(T val) : val((val%mod+mod)%mod){}
+    Mint(T val) {
+        this->val = val;
+        while (this->val < 0) this->val += mod;
+        while (this->val >= mod) this->val -= mod;
+    }
     //overload +, -, *, 
     friend std::ostream& operator<<(std::ostream& os, const Mint& m) {
         os<<m.val;
         return os;
     }
     Mint operator+(const Mint& other) const{
-        return Mint((other.val + val)%mod);
+        return Mint((val + other.val) < 0 ? (val+other.val + mod) : (val + other.val >= mod ? val+other.val - mod : val+other.val));
     }
     Mint operator-(const Mint& other) const{
-        return Mint((val - other.val+mod)%mod);
+        return Mint((val - other.val) < 0 ? (val-other.val + mod) : (val - other.val >= mod ? val-other.val - mod : val-other.val));
     }
     Mint operator*(const Mint& other) const{
         return Mint((val*other.val)%mod);
@@ -37,11 +41,11 @@ public:
         return Mint(((val * modinv(other.val, mod)) + mod ) % mod);
     }
     Mint& operator+=(const Mint& other){
-        val = (val+ other.val)%mod;
+        val = ((val + other.val) < 0 ? (val + other.val + mod) : (val + other.val >= mod ? val + other.val - mod : val+other.val));
         return *this;
     }
     Mint& operator-=(const Mint& other){
-        val = (val - other.val+mod)%mod;
+        val = ((val - other.val) < 0 ? (val-other.val + mod) : (val - other.val >= mod ? val-other.val - mod : val-other.val));
         return *this;
     }
     Mint& operator*=(const Mint& other){

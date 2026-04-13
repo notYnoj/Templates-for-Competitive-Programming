@@ -6,6 +6,7 @@
 #define pll pair<ll, ll>
 #define vi vector<ll>
 #define vvi vector<vector<ll>>
+#define <chrono>
 using namespace std;
 int t;
 // Everything Else thats new :D
@@ -37,6 +38,18 @@ void solve(){
     
 }
 int main(){
+    #ifdef DEBUG
+    auto start = std::chrono::high_resolution_clock::now();
+    #endif
+    
     cin>>t;
     while(t--){solve();}
+    
+    #ifdef DEBUG
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+    cout << "\n-----------------------------" << endl;
+    cout << "Time taken: " << duration.count() << " milliseconds" << endl;
+    return 0;
+    #endif
 }
